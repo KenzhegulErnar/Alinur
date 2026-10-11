@@ -1,0 +1,1152 @@
+<!doctype html>
+<html lang="kk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Балаларға арналған қаржылық сауаттылық: бос сатып алу ақшаны қалай жоғалтатынын суретті оқиға, ойын және кітап кеңестері арқылы үйренеміз.">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<title>Ақылды теңге</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;800&family=Nunito:wght@400;600;800;900&display=swap">
+<style>
+/* Layout: a storybook journey — hero with a leaky wallet, then comic strip, shop game, calculator, rules, quiz */
+:root{
+  --bg:#EEF6FB; --surface:#FFFFFF; --surface-2:#DCEDF8; --scene:#D3EAF8;
+  --ink:#1B2A4A; --ink-soft:#4B5C7E; --line:#C5D9E8;
+  --gold:#F5B323; --green:#1E9A6B; --coral:#E2503C; --sky:#3E9BD6;
+  --stroke:#1B2A4A; --on-accent:#1B2A4A;
+  --font-display:"Unbounded","Arial Black",system-ui,sans-serif;
+  --font-body:"Nunito","Segoe UI",system-ui,sans-serif;
+  --r:22px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0F1830; --surface:#18244A; --surface-2:#22305C; --scene:#2A3B6C;
+    --ink:#EEF3FF; --ink-soft:#AEBBDA; --line:#2E3E6E;
+    --gold:#FFC53D; --green:#3CC48F; --coral:#FF7A66; --sky:#7CC6F2;
+    --stroke:#0B1124; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0F1830; --surface:#18244A; --surface-2:#22305C; --scene:#2A3B6C;
+  --ink:#EEF3FF; --ink-soft:#AEBBDA; --line:#2E3E6E;
+  --gold:#FFC53D; --green:#3CC48F; --coral:#FF7A66; --sky:#7CC6F2;
+  --stroke:#0B1124; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:18px;line-height:1.55;padding-inline:20px}
+.wrap{max-width:1120px;margin-inline:auto}
+h1,h2,h3{font-family:var(--font-display);text-wrap:balance;line-height:1.15;margin:0}
+h2{font-size:clamp(1.6rem,3.6vw,2.4rem);font-weight:800}
+h3{font-size:1.25rem;font-weight:600}
+p{margin:0}
+.lead{color:var(--ink-soft);max-width:62ch;font-size:1.1rem}
+.label{font-weight:900;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--green)}
+section{padding-block:56px;display:grid;gap:28px}
+.sec-head{display:grid;gap:12px}
+:focus-visible{outline:3px solid var(--sky);outline-offset:3px;border-radius:8px}
+
+/* svg palette */
+.s{stroke:var(--stroke);stroke-width:3;stroke-linejoin:round;stroke-linecap:round}
+.s2{stroke:var(--stroke);stroke-width:2.2;stroke-linejoin:round;stroke-linecap:round}
+.f-gold{fill:#F7B928}.f-gold2{fill:#E09A12}.f-pink{fill:#F7A1BC}.f-pink2{fill:#EC7FA1}
+.f-green{fill:#2FAE7F}.f-green2{fill:#228C64}.f-bill{fill:#A8DDB0}.f-skin{fill:#F3C49E}
+.f-hair{fill:#3B2A22}.f-shirt{fill:#3E86C9}.f-dress{fill:#EF6F86}.f-robot{fill:#B8C6D9}
+.f-sky{fill:#7CC4EE}.f-coral{fill:#EF5B47}.f-white{fill:#FFFFFF}.f-mint{fill:#73D7C3}
+.f-grey{fill:#C9D2DE}.f-ink{fill:var(--stroke)}.f-none{fill:none}.f-cheek{fill:#F59A9A;opacity:.6}
+.t-dark{fill:#1B2A4A;font-family:var(--font-body);font-weight:900}
+
+/* top bar */
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-block:18px}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:800;font-size:1.1rem;color:var(--ink);text-decoration:none}
+.brand svg{width:36px;height:36px}
+.nav{display:flex;gap:6px;flex-wrap:wrap}
+.nav a{color:var(--ink);text-decoration:none;font-weight:800;font-size:.95rem;padding:6px 12px;border-radius:999px}
+.nav a:hover{background:var(--surface-2)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:32px;align-items:center;padding-block:28px 40px}
+.hero h1{font-size:clamp(2.2rem,6vw,4.2rem);font-weight:800;letter-spacing:-.01em}
+.hero h1 .mark{background:linear-gradient(transparent 58%,var(--gold) 58%,var(--gold) 90%,transparent 90%);padding-inline:4px}
+.hero-text{display:grid;gap:20px;min-width:0}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{font:inherit;font-weight:900;font-size:1rem;border:3px solid var(--ink);border-radius:999px;padding:12px 22px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn-gold{background:var(--gold);color:var(--on-accent);box-shadow:0 4px 0 var(--ink)}
+.btn-ghost{background:transparent;color:var(--ink)}
+.hero-art svg{width:100%;height:auto;max-width:480px;display:block;margin-inline:auto}
+.fall{animation:drop 2.6s ease-in infinite;transform-box:fill-box;transform-origin:center}
+.fall.d2{animation-delay:.9s}.fall.d3{animation-delay:1.7s}
+@keyframes drop{0%{transform:translateY(0) rotate(0)}85%{opacity:1}100%{transform:translateY(46px) rotate(60deg);opacity:0}}
+.wind{stroke-dasharray:6 10;animation:wind 1.8s linear infinite}
+@keyframes wind{to{stroke-dashoffset:-32}}
+@media (prefers-reduced-motion: reduce){.fall,.wind{animation:none}}
+
+/* need vs want */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.duo-card{background:var(--surface);border-radius:var(--r);padding:26px;display:grid;gap:14px;border:3px solid var(--line);align-content:start}
+.duo-card.need{border-color:var(--green)}
+.duo-card.want{border-color:var(--coral)}
+.duo-card h3{display:flex;align-items:center;gap:10px}
+.pill{font-family:var(--font-body);font-weight:900;font-size:.8rem;padding:3px 10px;border-radius:999px;color:#fff}
+.need .pill{background:var(--green)}.want .pill{background:var(--coral)}
+.icons{display:flex;gap:10px;flex-wrap:wrap}
+.icons svg{width:64px;height:64px;background:var(--surface-2);border-radius:16px;padding:6px}
+.note{background:var(--surface-2);border-radius:16px;padding:16px 20px;max-width:none}
+
+/* comic */
+.strip{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.strip.three{grid-template-columns:repeat(3,1fr)}
+.panel{margin:0;background:var(--surface);border:3px solid var(--ink);border-radius:18px;overflow:hidden;display:grid;grid-template-rows:auto 1fr}
+.panel svg{display:block;width:100%;height:auto;background:var(--scene);border-bottom:3px solid var(--ink)}
+.panel figcaption{padding:14px 16px;font-size:.98rem;display:grid;gap:4px}
+.panel .n{font-family:var(--font-display);font-weight:800;color:var(--coral);font-size:.9rem}
+.three .panel .n{color:var(--green)}
+.lesson{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;background:var(--coral);color:#fff;border-radius:var(--r);padding:20px 24px}
+.lesson svg{width:64px;height:64px}
+.lesson p{font-weight:800;font-size:1.08rem}
+
+/* game */
+.game{display:grid;grid-template-columns:1fr 300px;gap:22px;align-items:start}
+.shelf{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.item{font:inherit;color:var(--ink);background:var(--surface);border:3px solid var(--line);border-radius:18px;padding:12px 10px 14px;display:grid;justify-items:center;gap:4px;cursor:pointer;text-align:center;position:relative;transition:transform .12s,border-color .12s}
+.item:hover{transform:translateY(-2px)}
+.item svg{width:64px;height:64px}
+.item .nm{font-weight:800;font-size:.95rem;line-height:1.2}
+.item .pr{font-weight:900;color:var(--ink-soft);font-variant-numeric:tabular-nums}
+.item[aria-pressed="true"]{border-color:var(--sky);background:var(--surface-2)}
+.item[aria-pressed="true"]::after{content:"✓";position:absolute;top:8px;right:10px;width:26px;height:26px;border-radius:50%;background:var(--sky);color:#fff;font-weight:900;display:grid;place-items:center;font-size:.9rem}
+.item .tag{font-size:.75rem;font-weight:900;padding:2px 8px;border-radius:999px;color:#fff}
+.tag.ok{background:var(--green)}.tag.bad{background:var(--coral)}
+.wallet{background:var(--surface);border:3px solid var(--ink);border-radius:var(--r);padding:20px;display:grid;gap:14px;position:sticky;top:calc(env(safe-area-inset-top,0px) + 12px)}
+.wallet .big{font-family:var(--font-display);font-weight:800;font-size:2rem;font-variant-numeric:tabular-nums}
+.meter{height:14px;border-radius:999px;background:var(--surface-2);overflow:hidden}
+.meter i{display:block;height:100%;background:var(--green);border-radius:999px;transition:width .3s}
+.row{display:flex;justify-content:space-between;gap:10px;font-weight:700}
+.row b{font-variant-numeric:tabular-nums}
+.warn{color:var(--coral);font-weight:800;font-size:.95rem}
+.result{background:var(--surface);border-radius:var(--r);padding:24px;display:grid;gap:16px;border:3px solid var(--ink)}
+.result h3{font-size:1.35rem}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.stat{background:var(--surface-2);border-radius:16px;padding:14px;display:grid;gap:2px}
+.stat span{font-size:.85rem;font-weight:800;color:var(--ink-soft)}
+.stat b{font-family:var(--font-display);font-size:1.4rem;font-variant-numeric:tabular-nums}
+.stat.g b{color:var(--green)}.stat.r b{color:var(--coral)}
+
+/* calculator */
+.calc{background:var(--surface);border-radius:var(--r);padding:26px;display:grid;gap:22px;border:3px solid var(--line)}
+.slider-row{display:grid;gap:10px}
+.slider-row label{font-weight:800}
+.slider-row output{font-family:var(--font-display);font-weight:800;font-size:2.2rem;color:var(--coral);font-variant-numeric:tabular-nums}
+input[type=range]{width:100%;accent-color:var(--coral);height:28px}
+.totals{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.goals{display:grid;gap:10px}
+.goal{display:grid;grid-template-columns:56px 1fr auto;gap:14px;align-items:center;background:var(--surface-2);border-radius:16px;padding:10px 16px}
+.goal svg{width:56px;height:56px}
+.goal .gn{font-weight:800;min-width:0}
+.goal .gn small{display:block;color:var(--ink-soft);font-weight:700;font-size:.9rem}
+.goal .gd{font-weight:900;text-align:right;font-variant-numeric:tabular-nums}
+.goal .gd small{display:block;font-weight:700;color:var(--ink-soft);font-size:.85rem}
+
+/* rules */
+.rules{display:grid;grid-template-columns:1.3fr 1fr;gap:22px;align-items:start}
+.qlist{list-style:none;margin:0;padding:0;display:grid;gap:12px;counter-reset:q}
+.qlist li{counter-increment:q;display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:center;background:var(--surface);border-radius:16px;padding:14px 18px;font-weight:700}
+.qlist li::before{content:counter(q);font-family:var(--font-display);font-weight:800;width:44px;height:44px;border-radius:50%;background:var(--gold);color:var(--on-accent);display:grid;place-items:center;border:3px solid var(--ink)}
+.rule3{background:var(--green);color:#fff;border-radius:var(--r);padding:26px;display:grid;gap:14px;justify-items:start}
+.rule3 svg{width:96px;height:96px}
+.rule3 h3{font-size:1.5rem}
+
+/* quiz */
+.quiz{display:grid;gap:16px}
+.q{background:var(--surface);border-radius:var(--r);padding:22px;display:grid;gap:12px}
+.q p.qt{font-weight:800;font-size:1.1rem}
+.opts{display:flex;gap:10px;flex-wrap:wrap}
+.opt{font:inherit;font-weight:800;color:var(--ink);background:var(--surface-2);border:3px solid transparent;border-radius:999px;padding:10px 18px;cursor:pointer}
+.opt:hover{border-color:var(--line)}
+.opt.right{background:var(--green);color:#fff}
+.opt.wrong{background:var(--coral);color:#fff}
+.opt:disabled{cursor:default}
+.fb{font-weight:700;color:var(--ink-soft)}
+.score{font-family:var(--font-display);font-weight:800;font-size:1.3rem}
+
+/* Asan vs Hasan */
+.versus{display:grid;grid-template-columns:1fr 1fr;gap:16px 20px}
+.vhead{display:flex;align-items:center;gap:12px;border-radius:18px;padding:10px 16px;color:#fff}
+.vhead.asan{background:var(--coral)}.vhead.hasan{background:var(--green)}
+.vhead svg{width:56px;height:60px;flex:none;background:#fff;border-radius:50%;padding:4px}
+.vhead b{display:block;font-family:var(--font-display);font-size:1.15rem}
+.vhead span{font-weight:700;font-size:.95rem}
+.versus .panel .n{color:var(--coral)}
+.versus .panel:nth-of-type(even) .n{color:var(--green)}
+.cmp-wrap{overflow-x:auto}
+.cmp{width:100%;border-collapse:separate;border-spacing:0;background:var(--surface);border-radius:var(--r);overflow:hidden;font-variant-numeric:tabular-nums}
+.cmp caption{text-align:left;font-family:var(--font-display);font-weight:600;font-size:1.2rem;padding-bottom:12px}
+.cmp th,.cmp td{padding:12px 16px;text-align:left;border-bottom:2px solid var(--line)}
+.cmp thead th{font-family:var(--font-display);font-size:1rem}
+.cmp thead th:nth-child(2){color:var(--coral)}.cmp thead th:nth-child(3){color:var(--green)}
+.cmp tbody th{font-weight:800;color:var(--ink-soft)}
+.cmp td{font-weight:700}
+.cmp td.bad{color:var(--coral)}.cmp td.ok{color:var(--green)}
+.cmp tr:last-child th,.cmp tr:last-child td{border-bottom:0}
+
+/* examples */
+.ex-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.ex{background:var(--surface);border-radius:var(--r);padding:20px;display:grid;gap:10px;align-content:start;border:3px solid var(--line)}
+.ex-top{display:flex;align-items:center;gap:12px}
+.ex-top svg{width:56px;height:56px;flex:none;background:var(--surface-2);border-radius:14px;padding:4px}
+.ex-top h3{font-size:1.02rem}
+.loss{font-weight:900;color:var(--coral);font-variant-numeric:tabular-nums}
+.smart{background:var(--surface-2);border-radius:12px;padding:10px 12px;font-size:.95rem}
+.smart b{color:var(--green)}
+.ex-total{background:var(--ink);color:var(--bg);border-radius:var(--r);padding:18px 22px;font-weight:800;font-size:1.1rem}
+.ex-total b{color:var(--gold);font-variant-numeric:tabular-nums}
+
+/* books */
+.books{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.book{background:var(--surface);border-radius:var(--r);padding:22px;display:grid;grid-template-columns:96px 1fr;gap:18px;align-items:start}
+.book > svg{width:96px;height:auto;filter:drop-shadow(4px 5px 0 var(--line))}
+.book-body{display:grid;gap:10px;min-width:0}
+.book h3{font-size:1.1rem}
+.book .by{color:var(--ink-soft);font-weight:700;font-size:.9rem}
+.book .tip{font-weight:800;font-size:1.05rem;border-left:5px solid var(--gold);padding-left:12px}
+.book .ex2{font-size:.97rem}
+.book .ex2 b{font-variant-numeric:tabular-nums}
+.try{font-size:.93rem;background:var(--surface-2);border-radius:12px;padding:8px 12px}
+.try b{color:var(--sky)}
+.proverbs{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.prov{background:var(--gold);color:var(--on-accent);border-radius:18px;padding:16px;display:grid;gap:6px;align-content:start}
+.prov b{font-family:var(--font-display);font-weight:600;font-size:1.02rem;line-height:1.3}
+.prov span{font-weight:700;font-size:.93rem}
+.jars{background:var(--surface);border-radius:var(--r);padding:24px;display:grid;gap:18px;border:3px solid var(--line)}
+.jar-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.jar{display:grid;justify-items:center;gap:6px;text-align:center}
+.jar svg{width:90px;height:110px}
+.jar b{font-family:var(--font-display);font-size:1.3rem;font-variant-numeric:tabular-nums}
+.jar span{font-weight:800}
+.jar small{color:var(--ink-soft);font-weight:700}
+
+/* final choice */
+.choice{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.pick{font:inherit;color:var(--ink);background:var(--surface);border:4px solid var(--line);border-radius:var(--r);padding:20px;display:grid;justify-items:center;gap:8px;cursor:pointer;text-align:center;transition:transform .15s,border-color .15s}
+.pick:hover{transform:translateY(-3px);border-color:var(--sky)}
+.pick svg{width:130px;height:140px}
+.pick b{font-family:var(--font-display);font-size:1.4rem}
+.pick span{color:var(--ink-soft);font-weight:700}
+.pick.right{border-color:var(--green);background:var(--surface-2)}
+.pick.wrong{border-color:var(--coral)}
+.pick:disabled{cursor:default;transform:none}
+.verdict{border-radius:var(--r);padding:22px 24px;font-weight:800;font-size:1.1rem;color:#fff;display:grid;gap:8px}
+.verdict.ok{background:var(--green)}.verdict.no{background:var(--coral)}
+.verdict b{font-family:var(--font-display);font-size:1.3rem}
+
+footer{border-top:3px dashed var(--line);padding-block:28px 40px;display:flex;gap:16px;align-items:center;flex-wrap:wrap;color:var(--ink-soft);font-weight:700}
+footer svg{width:72px;height:auto}
+
+@media (max-width:900px){
+  .hero,.game,.rules,.books{grid-template-columns:1fr}
+  .ex-grid,.proverbs{grid-template-columns:1fr 1fr}
+  .strip{grid-template-columns:repeat(2,1fr)}
+  .wallet{position:static}
+  .hero-art{order:-1}
+  .hero-art svg{max-width:340px}
+}
+@media (max-width:600px){
+  body{font-size:17px}
+  .duo,.strip,.strip.three,.versus{grid-template-columns:1fr}
+  .vhead.hasan{display:none}
+  .ex-grid,.proverbs{grid-template-columns:1fr}
+  .book{grid-template-columns:1fr}
+  .book > svg{width:80px}
+  .jar svg{width:64px;height:80px}
+  .choice{grid-template-columns:1fr 1fr;gap:12px}
+  .pick svg{width:90px;height:98px}
+  .pick{padding:14px}
+  .shelf{grid-template-columns:repeat(2,1fr)}
+  .stats,.totals{grid-template-columns:1fr}
+  section{padding-block:40px}
+  .nav{display:none}
+}
+</style>
+
+<!-- Illustration sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+<defs>
+  <symbol id="coin" viewBox="0 0 40 40">
+    <circle class="f-gold s" cx="20" cy="20" r="17" style="stroke-width:2.5"/>
+    <circle cx="20" cy="20" r="12" fill="none" stroke="#D08A0A" stroke-width="2"/>
+    <path d="M13.5 13.5h13M13.5 17.5h13M20 17.5v11" fill="none" stroke="#9A6206" stroke-width="3" stroke-linecap="round"/>
+  </symbol>
+
+  <symbol id="pig" viewBox="0 0 220 170">
+    <rect class="f-pink2 s" x="55" y="122" width="24" height="34" rx="8"/>
+    <rect class="f-pink2 s" x="140" y="122" width="24" height="34" rx="8"/>
+    <path class="f-none s" d="M34 92c-16-6-18 12-6 10c9-2 3-15-10-8"/>
+    <path class="f-pink2 s" d="M74 52L82 20L108 44Z"/>
+    <ellipse class="f-pink s" cx="110" cy="95" rx="80" ry="56"/>
+    <rect class="f-ink" x="94" y="44" width="36" height="8" rx="4"/>
+    <ellipse class="f-pink2 s" cx="186" cy="98" rx="18" ry="22"/>
+    <ellipse class="f-ink" cx="181" cy="92" rx="3" ry="5"/>
+    <ellipse class="f-ink" cx="192" cy="92" rx="3" ry="5"/>
+    <circle class="f-ink" cx="150" cy="78" r="6"/>
+    <circle class="f-cheek" cx="160" cy="104" r="9"/>
+  </symbol>
+
+  <symbol id="kid" viewBox="0 0 120 130">
+    <path class="f-shirt s" d="M16 132q2-42 44-44q42 2 44 44Z"/>
+    <rect class="f-skin s" x="50" y="76" width="20" height="16" rx="5"/>
+    <circle class="f-skin s" cx="28" cy="56" r="7"/>
+    <circle class="f-skin s" cx="92" cy="56" r="7"/>
+    <circle class="f-skin s" cx="60" cy="52" r="32"/>
+    <path class="f-hair s" d="M28 50C26 22 46 14 62 16C82 18 94 30 92 50C84 38 72 34 60 36C48 36 36 40 28 50Z"/>
+    <circle class="f-cheek" cx="42" cy="64" r="5"/>
+    <circle class="f-cheek" cx="78" cy="64" r="5"/>
+  </symbol>
+  <symbol id="kid-happy" viewBox="0 0 120 130">
+    <use href="#kid" width="120" height="130"/>
+    <circle class="f-ink" cx="48" cy="52" r="4"/><circle class="f-ink" cx="72" cy="52" r="4"/>
+    <path class="f-none s" d="M48 66q12 12 24 0"/>
+  </symbol>
+  <symbol id="kid-wow" viewBox="0 0 120 130">
+    <use href="#kid" width="120" height="130"/>
+    <circle class="f-ink" cx="48" cy="52" r="5.5"/><circle class="f-ink" cx="72" cy="52" r="5.5"/>
+    <circle class="f-white" cx="50" cy="50" r="2"/><circle class="f-white" cx="74" cy="50" r="2"/>
+    <ellipse class="f-ink" cx="60" cy="70" rx="6" ry="7"/>
+  </symbol>
+  <symbol id="kid-sad" viewBox="0 0 120 130">
+    <use href="#kid" width="120" height="130"/>
+    <path class="f-none s" d="M40 44l12-4M80 44l-12-4"/>
+    <circle class="f-ink" cx="48" cy="54" r="4"/><circle class="f-ink" cx="72" cy="54" r="4"/>
+    <path class="f-none s" d="M48 74q12-10 24 0"/>
+    <path class="f-sky" d="M44 60q-4 8 0 10q4-2 0-10Z"/>
+  </symbol>
+
+  <!-- Хасан: green shirt, spiky hair -->
+  <symbol id="kid2" viewBox="0 0 120 130">
+    <path class="f-green s" d="M16 132q2-42 44-44q42 2 44 44Z"/>
+    <path class="f-none" d="M48 92l12 12l12-12" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect class="f-skin s" x="50" y="76" width="20" height="16" rx="5"/>
+    <circle class="f-skin s" cx="28" cy="56" r="7"/>
+    <circle class="f-skin s" cx="92" cy="56" r="7"/>
+    <circle class="f-skin s" cx="60" cy="52" r="32"/>
+    <path class="f-hair s" d="M28 48L30 30L38 34L42 18L52 28L60 12L68 28L78 18L82 34L90 30L92 48C80 40 70 38 60 38C50 38 40 40 28 48Z"/>
+    <circle class="f-cheek" cx="42" cy="64" r="5"/>
+    <circle class="f-cheek" cx="78" cy="64" r="5"/>
+  </symbol>
+  <symbol id="kid2-think" viewBox="0 0 120 130">
+    <use href="#kid2" width="120" height="130"/>
+    <circle class="f-ink" cx="50" cy="50" r="4"/><circle class="f-ink" cx="74" cy="50" r="4"/>
+    <path class="f-none s" d="M52 70h14"/>
+  </symbol>
+  <symbol id="kid2-happy" viewBox="0 0 120 130">
+    <use href="#kid2" width="120" height="130"/>
+    <path class="f-none s" d="M43 53q5-6 10 0M67 53q5-6 10 0"/>
+    <path class="f-white s" d="M46 66q14 16 28 0Z"/>
+  </symbol>
+
+  <symbol id="spark" viewBox="-12 -12 24 24">
+    <path class="f-gold" d="M0-11L3-3L11 0L3 3L0 11L-3 3L-11 0L-3-3Z"/>
+  </symbol>
+
+  <symbol id="robot" viewBox="0 0 120 140">
+    <path class="f-none s" d="M60 10v18"/>
+    <circle class="f-coral s" cx="60" cy="10" r="6"/>
+    <rect class="f-robot s" x="8" y="82" width="16" height="34" rx="8"/>
+    <rect class="f-robot s" x="96" y="82" width="16" height="34" rx="8"/>
+    <rect class="f-robot s" x="30" y="28" width="60" height="44" rx="10"/>
+    <circle class="f-sky s" cx="47" cy="50" r="7"/><circle class="f-sky s" cx="73" cy="50" r="7"/>
+    <rect class="f-ink" x="48" y="60" width="24" height="5" rx="2.5"/>
+    <rect class="f-robot s" x="25" y="76" width="70" height="48" rx="10"/>
+    <circle class="f-gold s" cx="60" cy="100" r="9"/>
+    <rect class="f-robot s" x="34" y="124" width="16" height="12" rx="4"/>
+    <rect class="f-robot s" x="70" y="124" width="16" height="12" rx="4"/>
+  </symbol>
+  <symbol id="robot-broken" viewBox="0 0 120 140">
+    <path class="f-none s" d="M60 28v-10l12-6"/>
+    <circle class="f-grey s" cx="74" cy="11" r="5"/>
+    <rect class="f-robot s" x="8" y="82" width="16" height="34" rx="8"/>
+    <rect class="f-grey s" x="30" y="28" width="60" height="44" rx="10"/>
+    <path class="f-none s" d="M41 44l12 12M53 44l-12 12M67 44l12 12M79 44l-12 12"/>
+    <path class="f-none s" d="M48 65q12-6 24 0"/>
+    <rect class="f-grey s" x="25" y="76" width="70" height="48" rx="10"/>
+    <path class="f-none s" d="M60 78l-6 12l8 6l-6 14"/>
+    <circle class="f-white s" cx="74" cy="100" r="8"/>
+    <rect class="f-grey s" x="34" y="124" width="16" height="12" rx="4"/>
+    <rect class="f-grey s" x="70" y="124" width="16" height="12" rx="4"/>
+  </symbol>
+
+  <symbol id="ball" viewBox="0 0 64 64">
+    <circle class="f-white s2" cx="32" cy="32" r="24"/>
+    <path class="f-ink" d="M32 22l9.5 7l-3.6 11h-11.8l-3.6-11Z"/>
+    <path class="f-none s2" d="M32 22V8M41.5 29l13-4.5M37.9 40l8 11.5M26.1 40l-8 11.5M22.5 29l-13-4.5"/>
+  </symbol>
+
+  <!-- shop icons -->
+  <symbol id="i-notebook" viewBox="0 0 64 64">
+    <rect class="f-sky s2" x="14" y="8" width="38" height="48" rx="5"/>
+    <rect class="f-white s2" x="22" y="18" width="22" height="10" rx="2"/>
+    <path class="f-none s2" d="M10 16h8M10 26h8M10 36h8M10 46h8"/>
+  </symbol>
+  <symbol id="i-pencil" viewBox="0 0 64 64">
+    <path class="f-gold s2" d="M14 46L40 20L48 28L22 54Z"/>
+    <path class="f-skin s2" d="M14 46L22 54L9 59Z"/>
+    <path class="f-pink s2" d="M40 20l5-5l8 8l-5 5Z"/>
+    <path class="f-coral s2" d="M24 26L44 6L50 12L30 32Z" opacity=".95"/>
+  </symbol>
+  <symbol id="i-apple" viewBox="0 0 64 64">
+    <path class="f-coral s2" d="M32 20c-10-7-25-3-23 14c2 16 12 24 23 22c11 2 21-6 23-22c2-17-13-21-23-14Z"/>
+    <path class="f-none s2" d="M32 20q0-8 5-12"/>
+    <path class="f-green s2" d="M36 14q8-8 16-4q-6 8-16 4Z"/>
+    <path class="f-none" d="M18 32q2-6 7-8" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".7"/>
+  </symbol>
+  <symbol id="i-book" viewBox="0 0 64 64">
+    <rect class="f-green s2" x="12" y="8" width="40" height="48" rx="4"/>
+    <rect class="f-green2" x="13" y="9" width="8" height="46"/>
+    <path class="f-none" d="M28 22h16M28 30h12" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+    <use href="#spark" x="30" y="38" width="12" height="12"/>
+  </symbol>
+  <symbol id="i-slime" viewBox="0 0 64 64">
+    <rect class="f-coral s2" x="14" y="12" width="36" height="10" rx="3"/>
+    <rect class="f-mint s2" x="16" y="22" width="32" height="32" rx="7"/>
+    <circle class="f-white" cx="26" cy="34" r="2"/><circle class="f-gold" cx="36" cy="42" r="2.5"/><circle class="f-white" cx="40" cy="30" r="1.8"/><circle class="f-gold" cx="25" cy="46" r="1.8"/>
+    <use href="#spark" x="44" y="4" width="14" height="14"/>
+  </symbol>
+  <symbol id="i-egg" viewBox="0 0 64 64">
+    <ellipse class="f-gold s2" cx="32" cy="34" rx="19" ry="24"/>
+    <path class="f-none" d="M14 32l6-6l6 6l6-6l6 6l6-6l6 6" stroke="#EF5B47" stroke-width="3.5" stroke-linejoin="round"/>
+    <path class="f-none s2" d="M27 42q0-5 5-5q5 0 5-5"/>
+    <circle class="f-ink" cx="32" cy="49" r="2"/>
+  </symbol>
+  <symbol id="i-key" viewBox="0 0 64 64">
+    <circle class="f-none s2" cx="20" cy="16" r="9" style="stroke-width:3"/>
+    <path class="f-none s2" d="M26 22l6 6"/>
+    <path class="f-pink s2" d="M40 24l4.5 9.5l10.5 1.5l-7.6 7.4l1.8 10.4L40 48l-9.2 4.8l1.8-10.4L25 35l10.5-1.5Z"/>
+  </symbol>
+  <symbol id="i-soda" viewBox="0 0 64 64">
+    <rect class="f-coral s2" x="18" y="12" width="28" height="44" rx="7"/>
+    <rect class="f-grey s2" x="22" y="6" width="20" height="8" rx="3"/>
+    <path class="f-white" d="M18 30q7-6 14 0t14 0v10q-7 6-14 0t-14 0Z"/>
+    <circle class="f-white" cx="50" cy="16" r="2.5" opacity=".9"/><circle class="f-white" cx="54" cy="26" r="1.8"/>
+  </symbol>
+  <symbol id="i-blocks" viewBox="0 0 64 64">
+    <rect class="f-coral s2" x="8" y="34" width="22" height="20" rx="3"/>
+    <rect class="f-sky s2" x="32" y="34" width="22" height="20" rx="3"/>
+    <rect class="f-gold s2" x="19" y="14" width="22" height="20" rx="3"/>
+    <rect class="f-gold s2" x="23" y="9" width="6" height="5" rx="1"/><rect class="f-gold s2" x="31" y="9" width="6" height="5" rx="1"/>
+  </symbol>
+  <symbol id="i-bike" viewBox="0 0 64 64">
+    <circle class="f-none s2" cx="15" cy="42" r="11" style="stroke-width:3"/>
+    <circle class="f-none s2" cx="49" cy="42" r="11" style="stroke-width:3"/>
+    <path class="f-none" d="M15 42L26 24H42L49 42M26 24L33 42H15M33 42L42 24" stroke="#EF5B47" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/>
+    <path class="f-none s2" d="M21 20h9M40 17l3 7l6-2" style="stroke-width:3"/>
+  </symbol>
+  <!-- example icons -->
+  <symbol id="i-game" viewBox="0 0 64 64">
+    <rect class="f-grey s2" x="18" y="6" width="28" height="52" rx="6"/>
+    <rect class="f-sky" x="22" y="12" width="20" height="38" rx="2"/>
+    <path class="f-mint s2" d="M32 20l8 8l-8 12l-8-12Z"/>
+    <circle class="f-ink" cx="32" cy="54" r="2"/>
+  </symbol>
+  <symbol id="i-tv" viewBox="0 0 64 64">
+    <path class="f-none s2" d="M24 6l8 8l8-8M22 56l4-8M42 56l-4-8"/>
+    <rect class="f-grey s2" x="8" y="14" width="48" height="34" rx="5"/>
+    <rect class="f-sky" x="13" y="19" width="38" height="24" rx="3"/>
+    <use href="#spark" x="24" y="21" width="16" height="16"/>
+  </symbol>
+  <symbol id="i-sale" viewBox="0 0 64 64">
+    <path class="f-gold s2" d="M8 32L32 8H56V32L32 56Z"/>
+    <circle class="f-white s2" cx="47" cy="17" r="3.5"/>
+    <path class="f-none s2" d="M24 42L40 26" style="stroke-width:3"/>
+    <circle class="f-ink" cx="26" cy="29" r="3.5"/><circle class="f-ink" cx="38" cy="40" r="3.5"/>
+  </symbol>
+  <symbol id="i-spinner" viewBox="0 0 64 64">
+    <path class="f-coral s2" d="M32 14L16 42L48 42Z" style="stroke-width:10;stroke:#EF5B47"/>
+    <circle class="f-coral s2" cx="32" cy="14" r="9"/><circle class="f-coral s2" cx="16" cy="42" r="9"/><circle class="f-coral s2" cx="48" cy="42" r="9"/>
+    <circle class="f-gold s2" cx="32" cy="33" r="6"/>
+  </symbol>
+  <symbol id="i-candy" viewBox="0 0 64 64">
+    <path class="f-pink2 s2" d="M19 32L6 21V43Z M45 32L58 21V43Z"/>
+    <ellipse class="f-pink s2" cx="32" cy="32" rx="15" ry="12"/>
+    <path class="f-none" d="M24 24q4 8 0 16M32 21q4 11 0 22M40 24q4 8 0 16" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="i-case" viewBox="0 0 64 64">
+    <rect class="f-dress s2" x="17" y="5" width="30" height="54" rx="8"/>
+    <rect class="f-ink" x="22" y="11" width="11" height="11" rx="3"/>
+    <circle class="f-white" cx="32" cy="36" r="2.5"/><circle class="f-white" cx="40" cy="44" r="2.5"/><circle class="f-white" cx="26" cy="47" r="2.5"/><circle class="f-white" cx="38" cy="28" r="2"/>
+  </symbol>
+  <symbol id="dog" viewBox="0 0 64 64">
+    <ellipse cx="15" cy="30" rx="7" ry="14" fill="#8B5A2B" class="s2" transform="rotate(20 15 30)"/>
+    <ellipse cx="49" cy="30" rx="7" ry="14" fill="#8B5A2B" class="s2" transform="rotate(-20 49 30)"/>
+    <circle cx="32" cy="34" r="18" fill="#D9A066" class="s2"/>
+    <ellipse cx="32" cy="43" rx="10" ry="7" fill="#F3D3A8" class="s2"/>
+    <ellipse class="f-ink" cx="32" cy="39" rx="4" ry="3"/>
+    <circle class="f-ink" cx="25" cy="30" r="2.5"/><circle class="f-ink" cx="39" cy="30" r="2.5"/>
+  </symbol>
+  <symbol id="ship" viewBox="0 0 64 64">
+    <path class="f-white s2" d="M32 8V40M33 10L50 38H33Z"/>
+    <path class="s2" fill="#8B5A2B" d="M8 42H56L47 54H17Z"/>
+    <circle class="f-ink" cx="30" cy="48" r="2.5"/>
+    <path class="f-sky" d="M30 54q-3 4 0 6q3-2 0-6Z"/>
+    <path class="f-none" d="M4 60q7-4 14 0t14 0t14 0t14 0" stroke="#7CC4EE" stroke-width="3" stroke-linecap="round"/>
+  </symbol>
+</defs>
+</svg>
+
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="#basy"><svg viewBox="0 0 40 40" aria-hidden="true"><use href="#coin"/></svg>Ақылды теңге</a>
+    <nav class="nav" aria-label="Бөлімдер">
+      <a href="#kazhet">Қажет пе?</a>
+      <a href="#okiga">Оқиға</a>
+      <a href="#oyin">Ойын</a>
+      <a href="#esep">Есептеу</a>
+      <a href="#mysal">Мысалдар</a>
+      <a href="#kitap">Кітаптар</a>
+      <a href="#test">Тест</a>
+      <a href="#tandau">Қай жол дұрыс?</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <div class="hero" id="basy">
+    <div class="hero-text">
+      <span class="label">Балаларға арналған қаржылық сауаттылық</span>
+      <h1>Ақшаңды <span class="mark">желге</span> шашпа!</h1>
+      <p class="lead">Қажетсіз затты сатып алған сайын ақшаң тесік әмияннан төгілген тиындай жоғалады. Ақшаны ақылмен жұмсауды бірге үйренейік: оқиға оқимыз, дүкен ойынын ойнаймыз және ұсақ шығындарды есептейміз.</p>
+      <div class="btns">
+        <a class="btn btn-gold" href="#oyin">Ойынды бастау</a>
+        <a class="btn btn-ghost" href="#okiga">Асан мен Хасан</a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 380 360" role="img" aria-label="Тесік әмияннан тиындар төгіліп, желмен ұшып жатыр">
+        <circle cx="190" cy="170" r="160" style="fill:var(--surface-2)"/>
+        <rect class="f-bill s" x="78" y="44" width="150" height="46" rx="6" transform="rotate(-8 150 66)"/>
+        <rect class="f-bill s" x="150" y="40" width="120" height="44" rx="6" transform="rotate(10 210 62)"/>
+        <rect class="f-green s" x="50" y="68" width="250" height="172" rx="28"/>
+        <rect class="f-green2 s" x="210" y="122" width="110" height="72" rx="18"/>
+        <circle class="f-gold s" cx="238" cy="158" r="10"/>
+        <path class="f-none s" d="M98 120l26-8M184 112l-26 8" style="stroke-width:4"/>
+        <circle class="f-white s" cx="118" cy="146" r="15"/><circle class="f-white s" cx="166" cy="146" r="15"/>
+        <circle class="f-ink" cx="120" cy="152" r="6"/><circle class="f-ink" cx="164" cy="152" r="6"/>
+        <path class="f-none s" d="M118 196q12-12 24 0q12 12 24 0" style="stroke-width:4"/>
+        <path class="f-ink" d="M116 236l8 12l9-9l9 11l9-10l9 10l8-14Z"/>
+        <g class="fall"><use href="#coin" x="112" y="252" width="36" height="36"/></g>
+        <g class="fall d2"><use href="#coin" x="150" y="278" width="32" height="32"/></g>
+        <g class="fall d3"><use href="#coin" x="96" y="298" width="30" height="30"/></g>
+        <use href="#coin" x="250" y="250" width="34" height="34" transform="rotate(25 267 267)"/>
+        <use href="#coin" x="306" y="214" width="28" height="28"/>
+        <path class="wind f-none" d="M190 286q40-6 70-30q30-24 70-20" style="stroke:var(--sky);stroke-width:4;stroke-linecap:round"/>
+        <path class="wind f-none" d="M210 316q50-4 90-34" style="stroke:var(--sky);stroke-width:4;stroke-linecap:round"/>
+        <path class="f-none" d="M330 268q14-2 14 10t-14 8" style="stroke:var(--sky);stroke-width:4;stroke-linecap:round"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- NEED vs WANT -->
+  <section id="kazhet">
+    <div class="sec-head">
+      <span class="label">1-сабақ</span>
+      <h2>Қажеттілік пе, әлде қалау ма?</h2>
+      <p class="lead">Ақша жұмсамас бұрын бір сұрақ қой: бұл маған шынымен керек пе, әлде жай ғана ұнап тұр ма?</p>
+    </div>
+    <div class="duo">
+      <div class="duo-card need">
+        <h3>Қажеттілік <span class="pill">керек</span></h3>
+        <p>Онсыз күнделікті өмір қиындайды. Мысалы: тамақ, су, жылы киім, оқу құралдары.</p>
+        <div class="icons" aria-hidden="true">
+          <svg viewBox="0 0 64 64"><use href="#i-apple"/></svg>
+          <svg viewBox="0 0 64 64"><use href="#i-notebook"/></svg>
+          <svg viewBox="0 0 64 64"><use href="#i-pencil"/></svg>
+          <svg viewBox="0 0 64 64"><use href="#i-book"/></svg>
+        </div>
+      </div>
+      <div class="duo-card want">
+        <h3>Қалау <span class="pill">күте тұрады</span></h3>
+        <p>Бар болса қызық, бірақ онсыз да жақсы өмір сүруге болады. Мысалы: тағы бір ойыншық, тәтті сусын, жылтыр слайм.</p>
+        <div class="icons" aria-hidden="true">
+          <svg viewBox="0 0 64 64"><use href="#i-slime"/></svg>
+          <svg viewBox="0 0 64 64"><use href="#i-egg"/></svg>
+          <svg viewBox="0 0 64 64"><use href="#i-soda"/></svg>
+          <svg viewBox="0 0 64 64"><use href="#i-key"/></svg>
+        </div>
+      </div>
+    </div>
+    <p class="note">Қалау жаман нәрсе емес. Бірақ әр қалауды бірден орындай берсең, ақша маңызды нәрселерге жетпей қалады.</p>
+  </section>
+
+  <!-- STORY: two boys side by side -->
+  <section id="okiga">
+    <div class="sec-head">
+      <span class="label">2-сабақ</span>
+      <h2>Асан мен Хасан</h2>
+      <p class="lead">Екі досқа бірдей 5 000 ₸ болды. Екеуі де бір дүкенге кіріп, бір роботты көрді. Бірақ әрқайсысы басқаша шешім қабылдады. Суреттерді қатар қойып салыстыр.</p>
+    </div>
+    <div class="versus">
+      <div class="vhead asan"><svg viewBox="0 0 120 130" aria-hidden="true"><use href="#kid-sad"/></svg><div><b>Асанның жолы</b><span>Ойланбай сатып алды</span></div></div>
+      <div class="vhead hasan"><svg viewBox="0 0 120 130" aria-hidden="true"><use href="#kid2-happy"/></svg><div><b>Хасанның жолы</b><span>Ақшасын ұқыпты жұмсады</span></div></div>
+
+      <figure class="panel">
+        <svg viewBox="0 0 240 170" role="img" aria-label="Асан күлімдеп тұр, қасында ақша жинайтын шошқа қорапша">
+          <use href="#kid-happy" x="6" y="40" width="120" height="130"/>
+          <use href="#pig" x="118" y="70" width="116" height="90"/>
+          <use href="#coin" x="160" y="22" width="26" height="26"/>
+          <use href="#coin" x="190" y="36" width="22" height="22"/>
+          <rect class="f-white s2" x="130" y="128" width="78" height="26" rx="8"/>
+          <text class="t-dark" x="169" y="146" text-anchor="middle" font-size="15">5 000 ₸</text>
+        </svg>
+        <figcaption><span class="n">Асан · 1</span>Асан үш ай бойы футбол добына ақша жинады. Қорапшасында 5 000 ₸ болды.</figcaption>
+      </figure>
+      <figure class="panel">
+        <svg viewBox="0 0 240 170" role="img" aria-label="Хасан күлімдеп тұр, қасында ақша жинайтын шошқа қорапша">
+          <use href="#kid2-happy" x="6" y="40" width="120" height="130"/>
+          <use href="#pig" x="118" y="70" width="116" height="90"/>
+          <use href="#coin" x="160" y="22" width="26" height="26"/>
+          <use href="#coin" x="190" y="36" width="22" height="22"/>
+          <rect class="f-white s2" x="130" y="128" width="78" height="26" rx="8"/>
+          <text class="t-dark" x="169" y="146" text-anchor="middle" font-size="15">5 000 ₸</text>
+        </svg>
+        <figcaption><span class="n">Хасан · 1</span>Хасан да футбол добына ақша жинады. Оның қорапшасында да 5 000 ₸ болды.</figcaption>
+      </figure>
+
+      <figure class="panel">
+        <svg viewBox="0 0 240 170" role="img" aria-label="Асан дүкендегі жыпылықтаған роботқа таң қалып қарап тұр">
+          <rect style="fill:var(--surface-2)" x="120" y="150" width="120" height="20"/>
+          <use href="#kid-wow" x="0" y="40" width="120" height="130"/>
+          <use href="#robot" x="128" y="20" width="100" height="128"/>
+          <use href="#spark" x="128" y="14" width="22" height="22"/>
+          <use href="#spark" x="210" y="40" width="18" height="18"/>
+          <use href="#spark" x="220" y="96" width="14" height="14"/>
+          <rect class="f-gold s2" x="88" y="12" width="74" height="26" rx="6"/>
+          <text class="t-dark" x="125" y="30" text-anchor="middle" font-size="15">4 000 ₸</text>
+        </svg>
+        <figcaption><span class="n">Асан · 2</span>Дүкенде жыпылықтаған роботты көрді. «Әдемі екен!» деп, ойланбастан 4 000 ₸-ге сатып алды.</figcaption>
+      </figure>
+      <figure class="panel">
+        <svg viewBox="0 0 240 170" role="img" aria-label="Хасан роботқа қарап, керек пе деп ойланып тұр">
+          <use href="#kid2-think" x="0" y="40" width="120" height="130"/>
+          <use href="#robot" x="140" y="44" width="84" height="104"/>
+          <circle class="f-white s2" cx="112" cy="40" r="5"/><circle class="f-white s2" cx="124" cy="26" r="8"/>
+          <ellipse class="f-white s2" cx="176" cy="22" rx="48" ry="18"/>
+          <text class="t-dark" x="176" y="28" text-anchor="middle" font-size="16">Керек пе?</text>
+        </svg>
+        <figcaption><span class="n">Хасан · 2</span>Хасан да сол роботты көрді. «Әдемі екен... бірақ маған керек пе?» деп ойланды да, 3 күн күтуге шешті.</figcaption>
+      </figure>
+
+      <figure class="panel">
+        <svg viewBox="0 0 240 170" role="img" aria-label="Робот сынып қалды, Асан мұңайып тұр">
+          <use href="#kid-sad" x="0" y="40" width="120" height="130"/>
+          <use href="#robot-broken" x="122" y="34" width="96" height="120"/>
+          <rect class="f-robot s2" x="196" y="140" width="34" height="14" rx="7" transform="rotate(-20 213 147)"/>
+          <text class="t-dark" x="200" y="34" font-size="16" style="fill:var(--ink)">2 күн</text>
+        </svg>
+        <figcaption><span class="n">Асан · 3</span>Екі күннен кейін роботтың батареясы бітіп, қолы сынып қалды. Асан оны ойнамай қойды.</figcaption>
+      </figure>
+      <figure class="panel">
+        <svg viewBox="0 0 240 170" role="img" aria-label="Күнтізбе: үш күн күту, ақша қорапшада аман">
+          <rect class="f-white s" x="20" y="30" width="100" height="112" rx="12"/>
+          <path class="f-coral s" d="M20 54V42a12 12 0 0 1 12-12h76a12 12 0 0 1 12 12v12Z"/>
+          <rect class="f-ink" x="44" y="20" width="8" height="20" rx="4"/><rect class="f-ink" x="88" y="20" width="8" height="20" rx="4"/>
+          <text class="t-dark" x="70" y="112" text-anchor="middle" font-size="52">3</text>
+          <text class="t-dark" x="70" y="134" text-anchor="middle" font-size="16">күн</text>
+          <use href="#pig" x="126" y="70" width="108" height="84"/>
+          <use href="#coin" x="160" y="30" width="24" height="24"/>
+          <use href="#spark" x="206" y="30" width="20" height="20"/>
+        </svg>
+        <figcaption><span class="n">Хасан · 3</span>Үш күннен кейін робот есінен шығып кетті. Хасан оның керек емес екенін түсінді. 5 000 ₸ қорапшада аман қалды.</figcaption>
+      </figure>
+
+      <figure class="panel">
+        <svg viewBox="0 0 240 170" role="img" aria-label="Асанда аз ғана ақша қалды, доп әлі алыс">
+          <use href="#kid-sad" x="0" y="40" width="120" height="130"/>
+          <g opacity=".35" style="stroke-dasharray:5 5"><use href="#ball" x="150" y="14" width="66" height="66"/></g>
+          <text class="t-dark" x="183" y="54" text-anchor="middle" font-size="26" style="fill:var(--coral)">?</text>
+          <use href="#pig" x="128" y="96" width="80" height="62"/>
+          <rect class="f-white s2" x="112" y="130" width="70" height="24" rx="8"/>
+          <text class="t-dark" x="147" y="147" text-anchor="middle" font-size="14">1 000 ₸</text>
+        </svg>
+        <figcaption><span class="n">Асан · 4</span>Енді Асанда робот та, доп та жоқ. Қалғаны тек 1 000 ₸. Доп алу үшін тағы үш ай жинау керек.</figcaption>
+      </figure>
+      <figure class="panel">
+        <svg viewBox="0 0 240 170" role="img" aria-label="Хасан жаңа футбол добын ұстап қуанып тұр">
+          <rect style="fill:var(--green);opacity:.35" x="0" y="150" width="240" height="20"/>
+          <use href="#kid2-happy" x="0" y="40" width="120" height="130"/>
+          <use href="#ball" x="136" y="62" width="84" height="84"/>
+          <use href="#spark" x="130" y="40" width="22" height="22"/>
+          <use href="#spark" x="212" y="52" width="18" height="18"/>
+          <rect class="f-gold s2" x="126" y="10" width="106" height="26" rx="6"/>
+          <text class="t-dark" x="179" y="28" text-anchor="middle" font-size="13">Арман орындалды!</text>
+        </svg>
+        <figcaption><span class="n">Хасан · 4</span>Хасан арманындағы футбол добын сатып алды. Енді күнде достарымен ойнайды, доп оған ұзақ уақыт қызмет етеді.</figcaption>
+      </figure>
+    </div>
+
+    <div class="cmp-wrap">
+      <table class="cmp">
+        <caption>Бір аптадан кейін не болды?</caption>
+        <thead><tr><th scope="col"></th><th scope="col">Асан</th><th scope="col">Хасан</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Басындағы ақша</th><td>5 000 ₸</td><td>5 000 ₸</td></tr>
+          <tr><th scope="row">Дүкенде не істеді</th><td>Ойланбай робот алды</td><td>«Керек пе?» деп 3 күн күтті</td></tr>
+          <tr><th scope="row">Қолында не бар</th><td class="bad">Сынған робот</td><td class="ok">Жаңа футбол добы</td></tr>
+          <tr><th scope="row">Бос шығын</th><td class="bad">4 000 ₸</td><td class="ok">0 ₸</td></tr>
+          <tr><th scope="row">Арманы</th><td class="bad">Тағы 3 ай күту керек</td><td class="ok">Орындалды</td></tr>
+          <tr><th scope="row">Көңіл-күйі</th><td>Өкініш</td><td>Қуаныш</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">Екеуінде бірдей ақша болды. Айырмашылық бір-ақ нәрседе: Хасан сатып алмас бұрын ойланды. Қай баланың жолы дұрыс екенін сайттың соңында өзің айтасың.</p>
+  </section>
+
+  <!-- EXAMPLES -->
+  <section id="mysal">
+    <div class="sec-head">
+      <span class="label">Өмірден мысалдар</span>
+      <h2>Ақша қайда «ұшып кетеді»?</h2>
+      <p class="lead">Бос сатып алу көбіне байқаусызда болады. Мына алты жағдай саған таныс па? Әрқайсысының қасында ақылды жол жазылған.</p>
+    </div>
+    <div class="ex-grid">
+      <article class="ex">
+        <div class="ex-top"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#i-game"/></svg><h3>Ойындағы жаңа «скин»</h3></div>
+        <span class="loss">−2 500 ₸</span>
+        <p>Телефондағы ойын кейіпкеріне жаңа киім алдың. Ойын жалықтырса немесе өшіп қалса, ол киім де жоғалады.</p>
+        <p class="smart"><b>Ақылды жол:</b> ақшаны қолыңа ұстап, шынайы өмірде пайдаланатын затқа жұмса.</p>
+      </article>
+      <article class="ex">
+        <div class="ex-top"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#i-tv"/></svg><h3>Жарнамадағы ойыншық</h3></div>
+        <span class="loss">−3 500 ₸</span>
+        <p>Жарнамада ол ұшып, жарқырап тұрды. Үйге әкелсең, кішкентай әрі қарапайым болып шықты.</p>
+        <p class="smart"><b>Ақылды жол:</b> жарнама сатуға арналған. Алдымен дүкенде өз көзіңмен көр.</p>
+      </article>
+      <article class="ex">
+        <div class="ex-top"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#i-sale"/></svg><h3>«Екеуін алсаң, үшіншісі тегін»</h3></div>
+        <span class="loss">−1 200 ₸</span>
+        <p>Саған бір шоколад керек еді, бірақ акция үшін үшеуін алдың. Артық екеуі ақша шығыны болды.</p>
+        <p class="smart"><b>Ақылды жол:</b> акция тек өзіңе керек затқа ғана пайдалы.</p>
+      </article>
+      <article class="ex">
+        <div class="ex-top"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#i-spinner"/></svg><h3>«Досымда бар ғой»</h3></div>
+        <span class="loss">−1 500 ₸</span>
+        <p>Сыныптағылардың бәрі спиннер айналдырып жүрген соң, сен де алдың. Бір аптадан кейін оны ешкім есіне алмады.</p>
+        <p class="smart"><b>Ақылды жол:</b> «Бұл өзіме ұнай ма, әлде басқаларға еліктеп тұрмын ба?» деп сұра.</p>
+      </article>
+      <article class="ex">
+        <div class="ex-top"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#i-candy"/></svg><h3>Кассаның жанындағы тәтті</h3></div>
+        <span class="loss">−400 ₸</span>
+        <p>Кезекте тұрғанда көзің түсіп, алып алдың. Бұл тәттілерді дүкендер әдейі сол жерге қояды.</p>
+        <p class="smart"><b>Ақылды жол:</b> дүкенге тізіммен бар және тек тізімдегіні ал.</p>
+      </article>
+      <article class="ex">
+        <div class="ex-top"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#i-case"/></svg><h3>Үшінші телефон қабы</h3></div>
+        <span class="loss">−2 000 ₸</span>
+        <p>Үйде екі қап бар, бірақ жаңа түсі ұнап қалды. Енді шкафта үш қап жатыр, ал телефон біреу ғана.</p>
+        <p class="smart"><b>Ақылды жол:</b> жаңа зат алмас бұрын үйде барын тексер.</p>
+      </article>
+    </div>
+    <p class="ex-total">Барлығы: <b>11 100 ₸</b> желге ұшты. Бұл екі футбол добынан да көп ақша!</p>
+  </section>
+
+  <!-- GAME -->
+  <section id="oyin">
+    <div class="sec-head">
+      <span class="label">3-сабақ · Ойын</span>
+      <h2>Дүкен ойыны</h2>
+      <p class="lead">Сенде 5 000 ₸ бар. Мектепке бір аптаға қажетті заттарды себетке сал. Ақшаны бос шашпа! Таңдап болған соң «Тексеру» батырмасын бас.</p>
+    </div>
+    <div class="game">
+      <div class="shelf" id="shelf"></div>
+      <aside class="wallet" aria-live="polite">
+        <div>
+          <div style="font-weight:800;color:var(--ink-soft)">Әмияныңда қалды</div>
+          <div class="big" id="left">5 000 ₸</div>
+        </div>
+        <div class="meter"><i id="meter" style="width:100%"></i></div>
+        <div class="row"><span>Себетте</span><b id="spent">0 ₸</b></div>
+        <div class="row"><span>Заттар саны</span><b id="count">0</b></div>
+        <p class="warn" id="warn" hidden>Ақша жетпейді! Себеттен бір затты алып таста.</p>
+        <div class="btns">
+          <button class="btn btn-gold" id="check" type="button">Тексеру</button>
+          <button class="btn btn-ghost" id="reset" type="button">Қайта бастау</button>
+        </div>
+      </aside>
+    </div>
+    <div class="result" id="result" hidden aria-live="polite"></div>
+  </section>
+
+  <!-- CALCULATOR -->
+  <section id="esep">
+    <div class="sec-head">
+      <span class="label">4-сабақ · Есептеу</span>
+      <h2>Ұсақ шығын — үлкен шығын</h2>
+      <p class="lead">Күнде бір сағыз немесе бір газдалған сусын түк емес сияқты. Бірақ ұсақ ақша жиналып, үлкен соманы құрайды. Жүгірткіні жылжытып көр.</p>
+    </div>
+    <div class="calc">
+      <div class="slider-row">
+        <label for="daily">Күн сайын тәттіге, сағызға немесе сусынға жұмсайтын ақшаң</label>
+        <output id="dailyOut" for="daily">300 ₸</output>
+        <input type="range" id="daily" min="50" max="1000" step="50" value="300">
+      </div>
+      <div class="totals">
+        <div class="stat"><span>Бір аптада</span><b id="tw">2 100 ₸</b></div>
+        <div class="stat"><span>Бір айда</span><b id="tm">9 000 ₸</b></div>
+        <div class="stat r"><span>Бір жылда</span><b id="ty">109 500 ₸</b></div>
+      </div>
+      <h3>Осы ақшаға не алуға болар еді?</h3>
+      <div class="goals" id="goals"></div>
+    </div>
+  </section>
+
+  <!-- RULES -->
+  <section id="ereje">
+    <div class="sec-head">
+      <span class="label">5-сабақ · Ереже</span>
+      <h2>Сатып алмас бұрын өзіңе 5 сұрақ қой</h2>
+    </div>
+    <div class="rules">
+      <ol class="qlist">
+        <li>Бұл маған шынымен керек пе, әлде жай ғана ұнады ма?</li>
+        <li>Үйде осыған ұқсас зат бар ма?</li>
+        <li>Бір аптадан кейін де мұны қолданамын ба?</li>
+        <li>Осы ақшаны арманыма жинасам қайтеді?</li>
+        <li>Үш күн күтсем де, әлі алғым келе ме?</li>
+      </ol>
+      <div class="rule3">
+        <svg viewBox="0 0 220 170" aria-hidden="true"><use href="#pig"/></svg>
+        <h3>3 күн ережесі</h3>
+        <p>Бір затты қатты алғың келсе, 3 күн күт. Үш күннен кейін де керек болса, ата-анаңмен ақылдас. Көбінесе қалау өзінен-өзі өтіп кетеді, ал ақшаң қорапшада қалады.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKS -->
+  <section id="kitap">
+    <div class="sec-head">
+      <span class="label">Кітаптардан кеңес</span>
+      <h2>Ақылды кітаптар не үйретеді?</h2>
+      <p class="lead">Ақша туралы атақты кітаптар үлкендерге жазылған. Біз олардың ең басты кеңестерін балаларға түсінікті тілмен жеткіздік.</p>
+    </div>
+    <div class="books">
+      <article class="book">
+        <svg viewBox="0 0 80 104" aria-hidden="true">
+          <rect class="s" x="6" y="4" width="68" height="96" rx="6" fill="#2A9D8F"/>
+          <rect x="7.5" y="5.5" width="9" height="93" fill="#1F7A6F"/>
+          <use href="#coin" x="26" y="18" width="36" height="36"/>
+          <path d="M26 66h36M26 76h26" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+        <div class="book-body">
+          <h3>«Вавилонның ең бай адамы»</h3>
+          <p class="by">Джордж Клейсон, 1926 жыл</p>
+          <p class="tip">Тапқан ақшаңның оннан бірін алдымен өзіңе сақта.</p>
+          <p class="ex2">Ақша қолыңа тиген бойда оның кішкене бөлігін қорапшаға сал, қалғанын сосын ғана жұмса. Мысалы, әжең <b>2 000 ₸</b> берсе, <b>200 ₸</b> бірден қорапшаға түседі. Әр апта осылай істесең, бір жылда <b>10 400 ₸</b> жиналады.</p>
+          <p class="try"><b>Байқап көр:</b> келесі алған ақшаңнан оннан бірін бірден бөліп қой.</p>
+        </div>
+      </article>
+      <article class="book">
+        <svg viewBox="0 0 80 104" aria-hidden="true">
+          <rect class="s" x="6" y="4" width="68" height="96" rx="6" fill="#EF5B47"/>
+          <rect x="7.5" y="5.5" width="9" height="93" fill="#C9432F"/>
+          <use href="#dog" x="22" y="14" width="44" height="44"/>
+          <path d="M26 66h36M26 76h26" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+        <div class="book-body">
+          <h3>«Мани есімді ит»</h3>
+          <p class="by">Бодо Шефер, балаларға арналған кітап</p>
+          <p class="tip">Арманыңды суретке түсір де, күнде қара.</p>
+          <p class="ex2">Кітаптағы қыз арманының суреттерін арнайы альбомға жапсырып, оларға күнде қарап жүрді. Арманың көз алдыңда тұрса, ұсақ-түйекке ақша жұмсағың келмейді. Ойыншық алғың келгенде, альбомды аш та: «Мен не жинап жүрмін?» деп есіңе түсір.</p>
+          <p class="try"><b>Байқап көр:</b> арманыңның суретін салып, қорапшаңа жапсыр.</p>
+        </div>
+      </article>
+      <article class="book">
+        <svg viewBox="0 0 80 104" aria-hidden="true">
+          <rect class="s" x="6" y="4" width="68" height="96" rx="6" fill="#6C63C9"/>
+          <rect x="7.5" y="5.5" width="9" height="93" fill="#544CA8"/>
+          <use href="#coin" x="30" y="38" width="28" height="28"/>
+          <use href="#coin" x="30" y="28" width="28" height="28"/>
+          <use href="#coin" x="30" y="18" width="28" height="28"/>
+          <path d="M26 76h36M26 86h26" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+        <div class="book-body">
+          <h3>«Бай әке, кедей әке»</h3>
+          <p class="by">Роберт Кийосаки, 1997 жыл</p>
+          <p class="tip">Пайда әкелетін затқа жұмса, ақшаны жеп қоятын затқа емес.</p>
+          <p class="ex2">Кейбір заттар саған ұзақ уақыт пайда береді: кітап, сурет салу жинағы, доп. Ал кейбіреулері тек ақшаңды алып кетеді: тез сынатын ойыншық, бес минутта бітетін сағыз. Шахмат кітабы жыл бойы ойлауға үйретеді, ал <b>3 000 ₸</b>-лік робот екі күнде сынды.</p>
+          <p class="try"><b>Байқап көр:</b> соңғы сатып алған үш затыңды есіңе түсір. Қайсысы әлі де пайда әкеліп жүр?</p>
+        </div>
+      </article>
+      <article class="book">
+        <svg viewBox="0 0 80 104" aria-hidden="true">
+          <rect class="s" x="6" y="4" width="68" height="96" rx="6" fill="#3E86C9"/>
+          <rect x="7.5" y="5.5" width="9" height="93" fill="#2F6CA6"/>
+          <use href="#ship" x="20" y="12" width="48" height="48"/>
+          <path d="M26 70h36M26 80h26" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+        <div class="book-body">
+          <h3>«Кедей Ричардтың альманахы»</h3>
+          <p class="by">Бенджамин Франклин, 1732–1758 жылдар</p>
+          <p class="tip">Ұсақ шығыннан сақтан: кішкентай тесік үлкен кемені батырады.</p>
+          <p class="ex2">Франклин тағы бір кеңес берген: үнемделген теңге — тапқан теңге. Күнде <b>200 ₸</b>-ге чипсы алу түк емес сияқты. Бірақ бір айда бұл <b>6 000 ₸</b> болады. Кемедегі кішкентай тесік сияқты, ақша байқатпай ағып кете береді.</p>
+          <p class="try"><b>Байқап көр:</b> бір апта бойы әр ұсақ шығыныңды дәптерге жазып отыр.</p>
+        </div>
+      </article>
+    </div>
+
+    <h3>Қазақ мақалдары да осыны айтады</h3>
+    <div class="proverbs">
+      <div class="prov"><b>Тамшыдан теңіз құралады.</b><span>Күнде аздап жинасаң, үлкен ақша жиналады.</span></div>
+      <div class="prov"><b>Көрпеңе қарай көсіл.</b><span>Қолыңда қанша ақша болса, соған қарай жұмса.</span></div>
+      <div class="prov"><b>Жеті рет өлшеп, бір рет кес.</b><span>Сатып алмас бұрын әбден ойлан.</span></div>
+      <div class="prov"><b>Асыққан шайтанның ісі.</b><span>Асығып алған зат көбіне керек болмай шығады.</span></div>
+    </div>
+
+    <div class="jars">
+      <div class="sec-head">
+        <h3>Ақшаңды үш қорапшаға бөліп көр</h3>
+        <p class="lead">Вавилон кеңесі бойынша оннан бірі жинаққа кетеді. Қалғанын арманға және күнделікті шығынға бөлеміз.</p>
+      </div>
+      <div class="slider-row">
+        <label for="pocket">Қолыңдағы ақша</label>
+        <output id="pocketOut" for="pocket">2 000 ₸</output>
+        <input type="range" id="pocket" min="500" max="10000" step="500" value="2000">
+      </div>
+      <div class="jar-row">
+        <div class="jar">
+          <svg viewBox="0 0 90 110" aria-hidden="true"><rect class="f-grey s2" x="22" y="6" width="46" height="12" rx="4"/><rect class="s2" x="12" y="18" width="66" height="86" rx="14" style="fill:var(--surface-2)"/><rect x="15" y="86" width="60" height="15" rx="10" fill="#F7B928"/><use href="#coin" x="30" y="48" width="30" height="30"/></svg>
+          <span>Жинақ · 10%</span><b id="jSave">200 ₸</b><small>Ешқашан жұмсамаймыз</small>
+        </div>
+        <div class="jar">
+          <svg viewBox="0 0 90 110" aria-hidden="true"><rect class="f-grey s2" x="22" y="6" width="46" height="12" rx="4"/><rect class="s2" x="12" y="18" width="66" height="86" rx="14" style="fill:var(--surface-2)"/><rect x="15" y="54" width="60" height="47" rx="10" fill="#2FAE7F"/><use href="#ball" x="27" y="26" width="36" height="36"/></svg>
+          <span>Арманға · 40%</span><b id="jDream">800 ₸</b><small>Доп, велосипед, кітап</small>
+        </div>
+        <div class="jar">
+          <svg viewBox="0 0 90 110" aria-hidden="true"><rect class="f-grey s2" x="22" y="6" width="46" height="12" rx="4"/><rect class="s2" x="12" y="18" width="66" height="86" rx="14" style="fill:var(--surface-2)"/><rect x="15" y="44" width="60" height="57" rx="10" fill="#7CC4EE"/><use href="#i-apple" x="27" y="22" width="36" height="36"/></svg>
+          <span>Жұмсауға · 50%</span><b id="jSpend">1 000 ₸</b><small>Тек керек нәрселерге</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUIZ -->
+  <section id="test">
+    <div class="sec-head">
+      <span class="label">Қорытынды</span>
+      <h2>Өзіңді тексер</h2>
+    </div>
+    <div class="quiz" id="quiz"></div>
+    <p class="score" id="score" hidden></p>
+  </section>
+
+  <!-- FINAL QUESTION -->
+  <section id="tandau">
+    <div class="sec-head">
+      <span class="label">Соңғы сұрақ</span>
+      <h2>Қай баланың жолы дұрыс?</h2>
+      <p class="lead">Асан мен Хасанда бірдей 5 000 ₸ болды. Біреуі ақшасын желге шашты, екіншісі арманына жетті. Сен қалай ойлайсың? Бір баланы таңда.</p>
+    </div>
+    <div class="choice">
+      <button class="pick" type="button" id="pick-asan" data-who="asan">
+        <svg viewBox="0 0 120 130" aria-hidden="true"><use href="#kid-wow"/></svg>
+        <b>Асан</b><span>Ұнаған затты бірден сатып алады</span>
+      </button>
+      <button class="pick" type="button" id="pick-hasan" data-who="hasan">
+        <svg viewBox="0 0 120 130" aria-hidden="true"><use href="#kid2-think"/></svg>
+        <b>Хасан</b><span>Алдымен «Керек пе?» деп ойланады</span>
+      </button>
+    </div>
+    <div class="verdict" id="verdict" hidden aria-live="polite"></div>
+  </section>
+
+  <footer>
+    <svg viewBox="0 0 220 170" aria-hidden="true"><use href="#pig"/></svg>
+    <p>Ақылды теңге — балаларға арналған қаржылық сауаттылық сабағы. Ақшаңды ата-анаңмен бірге жоспарла. Бағалар мысал ретінде берілген.</p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  const fmt = n => n.toLocaleString('ru-RU').replace(/ /g,' ') + ' ₸';
+  const BUDGET = 5000;
+
+  /* ---------- Shop game ---------- */
+  const items = [
+    {id:'dapter', name:'Дәптер', price:250, need:true, icon:'i-notebook'},
+    {id:'slime', name:'Жылтыр слайм', price:1500, need:false, icon:'i-slime'},
+    {id:'alma', name:'Алма, 1 кг', price:700, need:true, icon:'i-apple'},
+    {id:'egg', name:'Сюрприз-жұмыртқа', price:1200, need:false, icon:'i-egg'},
+    {id:'pencil', name:'Қарындаштар', price:600, need:true, icon:'i-pencil'},
+    {id:'soda', name:'Газдалған сусын', price:500, need:false, icon:'i-soda'},
+    {id:'kitap', name:'Сабаққа кітап', price:1800, need:true, icon:'i-book'},
+    {id:'brelok', name:'Тағы бір брелок', price:900, need:false, icon:'i-key'}
+  ];
+  const chosen = new Set();
+  const shelf = document.getElementById('shelf');
+  const $ = id => document.getElementById(id);
+
+  items.forEach(it => {
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'item'; b.id = 'item-' + it.id;
+    b.setAttribute('aria-pressed','false');
+    b.innerHTML = `<svg viewBox="0 0 64 64" aria-hidden="true"><use href="#${it.icon}"/></svg>
+      <span class="nm">${it.name}</span><span class="pr">${fmt(it.price)}</span><span class="tag" hidden></span>`;
+    b.addEventListener('click', () => toggle(it, b));
+    shelf.appendChild(b);
+  });
+
+  function spentNow(){ let s=0; chosen.forEach(id => s += items.find(i=>i.id===id).price); return s; }
+
+  function toggle(it, b){
+    if (chosen.has(it.id)) { chosen.delete(it.id); }
+    else {
+      if (spentNow() + it.price > BUDGET) { $('warn').hidden = false; return; }
+      chosen.add(it.id);
+    }
+    $('warn').hidden = true;
+    b.setAttribute('aria-pressed', chosen.has(it.id));
+    clearMarks();
+    update();
+  }
+  function update(){
+    const s = spentNow();
+    $('left').textContent = fmt(BUDGET - s);
+    $('spent').textContent = fmt(s);
+    $('count').textContent = chosen.size;
+    $('meter').style.width = ((BUDGET - s) / BUDGET * 100) + '%';
+  }
+  function clearMarks(){
+    $('result').hidden = true;
+    document.querySelectorAll('.item .tag').forEach(t => t.hidden = true);
+  }
+  $('check').addEventListener('click', () => {
+    const r = $('result');
+    if (!chosen.size){
+      r.innerHTML = '<h3>Алдымен бірнеше зат таңда</h3><p>Мектепке не керек екенін ойлап, тауарларды себетке сал.</p>';
+      r.hidden = false; return;
+    }
+    let useful=0, waste=0; const wasted=[], missing=[];
+    items.forEach(it => {
+      const tag = document.querySelector('#item-' + it.id + ' .tag');
+      if (chosen.has(it.id)){
+        if (it.need) useful += it.price; else { waste += it.price; wasted.push(it.name); }
+        tag.hidden = false;
+        tag.className = 'tag ' + (it.need ? 'ok' : 'bad');
+        tag.textContent = it.need ? 'Қажет' : 'Бос шығын';
+      } else if (it.need) missing.push(it.name);
+    });
+    const left = BUDGET - useful - waste;
+    let title, text;
+    if (!waste && !missing.length){
+      title = 'Керемет! Сен — ақылды сатып алушысың!';
+      text = `Барлық қажетті заттарды алдың, бір теңгені де босқа жұмсамадың. Қалған ${fmt(left)} қорапшаңа түседі.`;
+    } else if (waste){
+      title = 'Ойбай, ақшаның бір бөлігі желге ұшты!';
+      text = `${fmt(waste)} қажетсіз заттарға кетті: ${wasted.join(', ')}. Мұндай заттар бір-екі күнде ұмытылады, ал ақша қайтып оралмайды.`;
+      if (missing.length) text += ` Ал мына қажетті заттар алынбай қалды: ${missing.join(', ')}.`;
+    } else {
+      title = 'Үнемдедің, бірақ бір нәрсе жетіспейді';
+      text = `Бос шығын жоқ, жарайсың! Бірақ мына қажетті заттар алынбай қалды: ${missing.join(', ')}. Ақша оларға жетеді.`;
+    }
+    r.innerHTML = `<h3>${title}</h3><p>${text}</p>
+      <div class="stats">
+        <div class="stat g"><span>Пайдалы шығын</span><b>${fmt(useful)}</b></div>
+        <div class="stat r"><span>Бос шығын</span><b>${fmt(waste)}</b></div>
+        <div class="stat"><span>Қалған ақша</span><b>${fmt(left)}</b></div>
+      </div>`;
+    r.hidden = false;
+    r.scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block:'nearest'});
+  });
+  $('reset').addEventListener('click', () => {
+    chosen.clear();
+    document.querySelectorAll('.item').forEach(b => b.setAttribute('aria-pressed','false'));
+    $('warn').hidden = true; clearMarks(); update();
+  });
+
+  /* ---------- Calculator ---------- */
+  const goals = [
+    {name:'Қызықты кітап', price:3000, icon:'i-book'},
+    {name:'Футбол добы', price:5000, icon:'ball'},
+    {name:'Конструктор', price:25000, icon:'i-blocks'},
+    {name:'Велосипед', price:60000, icon:'i-bike'}
+  ];
+  function calc(){
+    const d = +$('daily').value, y = d*365;
+    $('dailyOut').textContent = fmt(d);
+    $('tw').textContent = fmt(d*7);
+    $('tm').textContent = fmt(d*30);
+    $('ty').textContent = fmt(y);
+    $('goals').innerHTML = goals.map(g => {
+      const days = Math.ceil(g.price / d), cnt = Math.floor(y / g.price);
+      return `<div class="goal"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#${g.icon}"/></svg>
+        <div class="gn">${g.name}<small>${fmt(g.price)}</small></div>
+        <div class="gd">${days} күнде<small>жылына ${cnt} дана</small></div></div>`;
+    }).join('');
+  }
+  $('daily').addEventListener('input', calc);
+  calc();
+
+  /* ---------- Quiz ---------- */
+  const qs = [
+    {q:'Мыналардың қайсысы қажеттілік?', o:['Жаңа ойыншық','Қысқы күрте','Үшінші слайм'], a:1,
+     ok:'Дұрыс! Қыста жылы күртесіз жүру қиын, бұл — қажеттілік.', no:'Ойланып көр: онсыз өмір сүруге бола ма? Дұрыс жауап — қысқы күрте.'},
+    {q:'Асан неге футбол добын ала алмады?', o:['Доп қымбаттап кетті','Ойланбай робот сатып алды','Ақшасын жоғалтып алды'], a:1,
+     ok:'Дұрыс! Бір сәттік қалау арманына кедергі болды.', no:'Оқиғаны еске түсір: Асан ойланбастан робот сатып алды.'},
+    {q:'Хасан роботты көргенде не істеді?', o:['Бірден сатып алды','«Керек пе?» деп 3 күн күтті','Досынан қарызға ақша сұрады'], a:1,
+     ok:'Дұрыс! Хасан ойланып, күтті, сондықтан ақшасы арманына жетті.', no:'Хасан асықпады: ол «Керек пе?» деп сұрап, 3 күн күтті.'},
+    {q:'Күніне 300 ₸ сағызға жұмсасаң, бір айда (30 күн) қанша болады?', o:['3 000 ₸','9 000 ₸','900 ₸'], a:1,
+     ok:'Дұрыс! 300 × 30 = 9 000 ₸. Бұл футбол добының бағасынан да көп!', no:'Есептеп көр: 300 × 30 = 9 000 ₸.'}
+  ];
+  let answered = 0, score = 0;
+  const quiz = $('quiz');
+  qs.forEach((x, qi) => {
+    const box = document.createElement('div'); box.className = 'q';
+    box.innerHTML = `<p class="qt">${qi+1}. ${x.q}</p><div class="opts"></div><p class="fb" aria-live="polite"></p>`;
+    const opts = box.querySelector('.opts'), fb = box.querySelector('.fb');
+    x.o.forEach((t, oi) => {
+      const b = document.createElement('button'); b.type='button'; b.className='opt'; b.id=`q${qi}o${oi}`; b.textContent=t;
+      b.addEventListener('click', () => {
+        opts.querySelectorAll('.opt').forEach((ob, k) => { ob.disabled = true; if (k === x.a) ob.classList.add('right'); });
+        if (oi === x.a) { score++; fb.textContent = x.ok; } else { b.classList.add('wrong'); fb.textContent = x.no; }
+        if (++answered === qs.length){
+          const s = $('score'); s.hidden = false;
+          s.textContent = `Нәтижең: ${score} / ${qs.length}. ` + (score === qs.length ? 'Сен ақылды теңгенің нағыз сақшысысың!' : 'Жақсы! Тағы бір рет оқып шық, сонда бәрі есіңде қалады.');
+        }
+      });
+      opts.appendChild(b);
+    });
+    quiz.appendChild(box);
+  });
+
+  /* ---------- Jars ---------- */
+  function jars(){
+    const m = +$('pocket').value;
+    const save = Math.round(m * 0.1), dream = Math.round(m * 0.4);
+    $('pocketOut').textContent = fmt(m);
+    $('jSave').textContent = fmt(save);
+    $('jDream').textContent = fmt(dream);
+    $('jSpend').textContent = fmt(m - save - dream);
+  }
+  $('pocket').addEventListener('input', jars);
+  jars();
+
+  /* ---------- Final choice ---------- */
+  const picks = document.querySelectorAll('.pick');
+  picks.forEach(p => p.addEventListener('click', () => {
+    const v = $('verdict');
+    picks.forEach(x => x.disabled = true);
+    $('pick-hasan').classList.add('right');
+    if (p.dataset.who === 'hasan'){
+      v.className = 'verdict ok';
+      v.innerHTML = '<b>Дұрыс! Хасанның жолы дұрыс.</b><span>Хасан ойланды, күтті және ақшасын шынымен керек нәрсеге жұмсады. Сондықтан оның арманы орындалды. Сен де Хасандай бол: сатып алмас бұрын «Бұл маған керек пе?» деп сұра.</span>';
+    } else {
+      p.classList.add('wrong');
+      v.className = 'verdict no';
+      v.innerHTML = '<b>Тағы бір ойланып көр.</b><span>Асан ойланбай сатып алып, 4 000 ₸ жоғалтты және арманына жете алмады. Дұрыс жол — Хасанның жолы: ол асықпай, ақшасын ұқыпты жұмсады.</span>';
+    }
+    v.hidden = false;
+  }));
+})();
+</script>
+
+</body>
+</html>
